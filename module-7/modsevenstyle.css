@@ -1,0 +1,30 @@
+
+/* Plain circle: white fill with black stroke */
+.plaincircle {
+    -fx-fill: white;
+    -fx-stroke: black;
+}
+
+/* Circle with dashed border effect */
+.circleborder {
+    -fx-stroke-width: 5;
+    -fx-stroke-dash-array: 12 2 4 2;
+}
+
+/* Border applied to the pane surrounding the circle */
+.border {
+    -fx-border-color: black;    
+    -fx-border-width: 5;
+}
+
+/* Red circle using ID selector */
+#redcircle {
+    -fx-fill: red;         
+    -fx-stroke: red;              
+}
+
+/* Green circle using ID selector */
+#greencircle {
+    -fx-fill: green;             
+    -fx-stroke: green;            
+}
