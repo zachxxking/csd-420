@@ -1,0 +1,44 @@
+// Zachariah King - JSON
+// 7/27/25
+// JSON Property is used to throw Java fields onto JSON properties to show serialization/deserialization
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+class User {
+    @JsonProperty("user_id")
+    private int id;
+
+    @JsonProperty("user_name")
+    private String name;
+
+    // Constructors
+    public User() {}
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    // Getters, setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}
+
+public class JacksonExample {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+
+        // Serialize
+        User user = new User(1, "Zach");
+        String jsonString = mapper.writeValueAsString(user);
+        System.out.println("Serialized JSON: " + jsonString);
+
+        // Deserialize
+        String inputJson = "{\"user_id\":2,\"user_name\":\"Alex\"}";
+        User user2 = mapper.readValue(inputJson, User.class);
+        System.out.println("Deserialized User: " + user2.getName());
+    }
+}
